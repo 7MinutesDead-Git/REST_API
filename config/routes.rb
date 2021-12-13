@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # We’re creating a Todos resource with a nested Items resource.
+  # This enforces the 1:m associations at the routing level.
+  resources(:todos) do
+    resources(:items)
+  end
 end
