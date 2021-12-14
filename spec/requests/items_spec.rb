@@ -8,12 +8,18 @@ RSpec.describe 'Items API' do
   unprocessable = 422
   no_content = 204
   no_items = 0
+  no_method_backup = 420
   # -------------------------------------------------------------
   # Initialize the test data.
   let!(:todo) { create(:todo) }
   let!(:items) { create_list(:item, items_length, todo_id: todo.id) }
   let(:todo_id) { todo.id }
-  let(:id) { items.first.id }
+
+  begin
+    let(:id) { items.first.id }
+  rescue NoMethodError
+    let(:id) { no_method_backup }
+  end
 
   # -------------------------------------------------------------
   # Test suite for GET /todos/:todo_id/items
