@@ -4,7 +4,7 @@ class TodosController < ApplicationController
   # GET /todos. -----------
   def index
     @todos = Todo.all
-    json_response(@todos)
+    render_json_response(@todos)
   end
 
   # POST /todos. -----------
@@ -13,12 +13,12 @@ class TodosController < ApplicationController
     # The model will raise an exception ActiveRecord::RecordInvalid
     # so we can avoid deep nested if statements in the controller.
     @todo = Todo.create!(todo_params)
-    json_response(@todo, :created)
+    render_json_response(@todo, :created)
   end
 
   # GET /todos/:id. -----------
   def show
-    json_response(@todo)
+    render_json_response(@todo)
   end
 
   # PUT /todos/:id. -----------

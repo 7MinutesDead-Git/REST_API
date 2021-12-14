@@ -6,18 +6,18 @@ class ItemsController < ApplicationController
 
   # GET /todos/:todo_id/items
   def index
-    json_response(@todo.items)
+    render_json_response(@todo.items)
   end
 
   # GET /todos/:todo_id/items/:id
   def show
-    json_response(@item)
+    render_json_response(@item)
   end
 
   # POST /todos/:todo_id/items
   def create
     @todo.items.create!(item_params)
-    json_response(@todo, :created)
+    render_json_response(@todo, :created)
   end
 
   # PUT /todos/:todo_id/items/:id
