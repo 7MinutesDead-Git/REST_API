@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-# Test suite for "To do" model.
+# Test suite for todos model.
 RSpec.describe Todo, type: :model do
   # Association Tests. ------------------------------
-  # Ensure "To do" model has 1:m relationship with Item model.
+  # Ensure todos model has 1:m relationship with Item model.
   it { should have_many(:items).dependent(:destroy) }
 
   # Validation Tests. -------------------------------
